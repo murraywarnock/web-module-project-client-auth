@@ -74,6 +74,14 @@ app.post('/api/login', (req, res) => {
   }
 });
 
+//Added logout endpoint
+app.post("/api/logout", (req, res) => {
+  //remove token from database
+  res.status(200).json({
+    payload: token
+  });
+});
+
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);
